@@ -1,6 +1,6 @@
 A neural sequence-to-sequence parser for converting natural language queries to logical form.
 
-This is a tenorflow implementation of the sequence-to-sequence+attention parser model by Dong et al. (2016) described in the following paper.
+This is a tensorflow implementation of the sequence-to-sequence+attention parser model by Dong et al. (2016) described in the following paper.
 
 ''Language to Logical Form with Neural Attention'', Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics, ACL 2016. https://arxiv.org/abs/1601.01280
 
