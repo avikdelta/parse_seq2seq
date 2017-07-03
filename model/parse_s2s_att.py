@@ -204,7 +204,9 @@ def create_batches(data):
             
     return batches
     
-
+#-----------------------------------------------------
+# main training function
+#-----------------------------------------------------
 def train():
   """Train a query->logical form semantic parser model"""
   from_train = None
@@ -266,12 +268,6 @@ def train():
     print("train_bucket_sizes =",train_bucket_sizes)
     train_total_size = float(sum(train_bucket_sizes))
     print("train_total_size =",train_total_size)
-
-    # A bucket scale is a list of increasing numbers from 0 to 1 that we'll use
-    # to select a bucket. Length of [scale[i], scale[i+1]] is proportional to
-    # the size if i-th training bucket, as used later.
-    train_buckets_scale = [sum(train_bucket_sizes[:i + 1]) / train_total_size
-                           for i in xrange(len(train_bucket_sizes))]
                            
     # create data batches for training
     all_train_batches = create_batches(train_set)
@@ -292,18 +288,9 @@ def train():
     
     while True:
       
-      # Choose a bucket according to data distribution. We pick a random number
-      # in [0, 1] and use the corresponding interval in train_buckets_scale.
-      #random_number_01 = np.random.random_sample()
-      #bucket_id = min([i for i in xrange(len(train_buckets_scale))
-      #                 if train_buckets_scale[i] > random_number_01])
       bucket_id = 0 # we just have one bucket
-                       
 
       # Get a batch and make a step.
-      
-      #encoder_inputs, decoder_inputs, target_weights = model.get_batch(
-      #    train_set, bucket_id)
         
       # select batch for this iteration
       bidx = batch_permutations[bucket_id][batch_pidx[bucket_id]]
@@ -370,6 +357,9 @@ def train():
     print("Training complete!")
     return
 
+#-----------------------------------------------------
+# function computing test accuracy
+#-----------------------------------------------------
 def test_accuracy(from_data,to_data):
 
     config_ = tf.ConfigProto()
@@ -430,6 +420,9 @@ def test_accuracy(from_data,to_data):
     return val_acc
             
 
+#-----------------------------------------------------
+# function for interactive decoding
+#-----------------------------------------------------
 def decode():
   config_ = tf.ConfigProto()
   config_.gpu_options.allow_growth = True
@@ -455,7 +448,7 @@ def decode():
       # Get token-ids for the input sentence.
       token_ids = data_utils.sentence_to_token_ids(sentence, from_vocab)
       
-      #print(token_ids)
+      print(token_ids)
       
       # Which bucket does it belong to?
       bucket_id = len(_buckets) - 1
