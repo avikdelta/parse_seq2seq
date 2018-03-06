@@ -4,7 +4,12 @@ This is a tensorflow implementation of the sequence-to-sequence+attention parser
 
 ''Language to Logical Form with Neural Attention'', Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics, ACL 2016. https://arxiv.org/abs/1601.01280
 
-Example usage:
+** Platform: **
+
+Tensorflow 1.0.0
+Python 3.5
+
+** Example usage: **
 
 For training model:
  
