@@ -6,7 +6,7 @@ This is a tensorflow implementation of the sequence-to-sequence+attention parser
 
 ## Platform:
 
-Tensorflow 1.0.0, 
+Tensorflow 1.0.0 
 
 Python 3.5
 
