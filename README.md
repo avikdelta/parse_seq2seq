@@ -13,16 +13,22 @@ Python 3.5
 ## Example usage:
 
 ### For training model:
- 
+
+```
 python model/parse_s2s_att.py --data_dir=data --train_dir=checkpoint --train_file=geoqueries_train.txt --test_file=geoqueries_test.txt
+```
 
 ### For testing model:
 
+```
 python model/parse_s2s_att.py --data_dir=data --train_dir=checkpoint --test_file=geoqueries_test.txt --test=True
+```
 
 ### For interactive testing:
 
+```
 python model/parse_s2s_att.py --data_dir=data --train_dir=checkpoint --decode=True
+```
 
 The default parameters provided give test accuracy of 83.9% on the geo-queries dataset. However, this can vary slightly on different machines.
 
