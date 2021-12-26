@@ -8,9 +8,10 @@ Note that the sequence-to-tree+attention parser, also presented in the above pap
 
 ## Platform:
 
-Tensorflow 1.0.0 
+*Warning:* This implementation is based on an old Tensorflow version. This repo is no longer being maintained or updated.
 
-Python 3.5
+- Tensorflow 1.0.0 
+- Python 3.5
 
 ## Example usage:
 
